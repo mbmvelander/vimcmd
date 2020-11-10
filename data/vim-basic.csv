@@ -1,0 +1,23 @@
+keys;short;long
+h j k l;Basic movement;Basic movement keys. A step up from the cursor keys simply because they are already under your fingers. Most useful when prefixed with a number (e.g. if you need to move down by about 10 lines, hit “10j” instead of just holding j until you get there).
+b w B W;Back/forward by token/word;Move back by token/forward by token/back by word/forward by word.  (A token is a sequence of letters, digits, and underscores. For the capital letter variations, a word consists of anything that’s not whitespace.) Faster than holding down a simple directional key.
+0 ^ $;Home (or first non-whitespace) and End;Jump to first column/first non-whitespace character/end of line, like Home and End. Faster than moving by words if you’re trying to get to the opposite end of the line.
+ctrl+u ctrl+d;Page Up/Down;Basically Page Up and Page Down, but moves by half a screenful and doesn’t lose your cursor position.
+234G;Jump to line 234;Jump directly to a specific line number (234 here). Most helpful if you also have line numbering enabled (:set number).
+H M L;Top/middle/bottom of screen;Move to the top/middle/bottom of the screen (i.e. High/Middle/Low). A good first step in getting approximately to where you want to go.
+# *;Previous/next instance of current token;Find the previous/next occurrence of the token under the cursor.
+n N;Repeat last find search;Repeat the last find command forward/backward.
+``;Jump back;(That’s two back-ticks). Jump back to where you just were. This will jump back and forth between the same two locations if you keep pressing it.
+ctrl+o ctrl+i;Forward/back jump;Move backward/forward through the jump history. Useful if you have followed a chain of method calls and need to get back to where you were.
+i a I A;Insert/append;Enter insert mode (insert at cursor/append after cursor/insert at beginning of line/append to end of line). Press Esc to exit insert mode and return to normal mode.  It’s rarely useful to precede one of these commands with a number, but it can come in handy. Need a comma-separated list of eight 1s? Just hit "8i1,<esc>" then delete the trailing comma.
+o O;New line below/above;Open new line (below the current line/above the current line). A quick "o<esc>" will add a blank line below the current line, no matter where your cursor is.
+cw cW;Correct token(s)/word(s);Correct the token(s)/word(s) following the cursor. Basically combines delete and insert into one step.
+cc;Correct line;Correct line(s) by clearing and then entering insert mode. Starts inserting at the current indent level.
+dd;Delete line(s);Quickly rearrange lines by deleting them, moving to the new location, and pasting with "p".
+ct cf ci ca/dt df di da;Correct/delete up to or including chars;t<char>: exclusive match---continue up to (but not including) the next <char> on this line.\nf<char>: inclusive match---continue up to (and including) the next <char> on this line.\ni<char>: exclusive inner match---apply to text bounded by <char>, where <char> is from a limited set of characters that come in pairs, like quotes, parentheses, brackets, etc.\na<char>: inclusive inner match---same as above, except it includes <char> on both ends.
+s;Delete at cursor and enter insert;Delete character(s) at the cursor and then enter insert mode. "cw" is usually faster if you want to correct an entire word, but this is useful for correcting a fixed number of characters (e.g. "5s" will correct the next five characters).
+yy;Copy line(s);Copy line(s). The "y" is for yank.
+yw yW;Copy token(s)/word(s);Copy token(s)/word(s).
+p P;Paste before or after;Paste the last thing that was deleted or copied before/after cursor (for more advanced usage, you can precede it with a register specification.
+u ctrl+r;Undo and redo;Undo and redo.
+.;Repeat command;(That’s a period). Repeat the previous edit command. Did you just add a line (e.g. using "o" or "O") that you need to duplicate five more times with only slight modifications?  Hit "5." to repeat that operation, then make your modifications, no copy/paste needed.
